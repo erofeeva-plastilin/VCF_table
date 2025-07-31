@@ -69,9 +69,9 @@ def process_vcf(input_file):
                         if has_ad:
                             if ad_idx != -1 and ad_idx < len(sample_fields):
                                 ad = sample_fields[ad_idx]
-                                if "," in ad:
+                                if ad != ".":
                                     ad_values = ad.split(',')
-                                    ad = f"{ad_values[0]}/{ad_values[1]}"
+                                    ad = "/".join(ad_values)
                                 else:
                                     ad = "./."
                             else:
